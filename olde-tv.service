@@ -1,0 +1,14 @@
+[Unit]
+Description=Olde TV channel player (HDMI -> RF)
+After=multi-user.target sound.target
+
+[Service]
+User=ada
+Group=ada
+SupplementaryGroups=video render audio gpio input
+ExecStart=/usr/bin/python3 /home/ada/olde-tv/olde_tv.py --video-dir /video
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
